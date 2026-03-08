@@ -1,0 +1,109 @@
+[gd_scene load_steps=15 format=4 uid="uid://cll3sb1uew8n4"]
+
+[ext_resource type="Script" uid="uid://8plevocjujkf" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://dynn7dih61bwj" path="res://assets/tiles.png" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bdigp0xo0mil5" path="res://dog.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dn1aj1hmay3s7" path="res://ball.tscn" id="3_272bh"]
+[ext_resource type="Texture2D" uid="uid://cwe2iltpw4trv" path="res://assets/whistle1.png" id="7_5vw27"]
+[ext_resource type="Texture2D" uid="uid://davskvk2ossc5" path="res://assets/whistle2.png" id="8_kek77"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg77c"]
+atlas = ExtResource("7_5vw27")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ycdy4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efxa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg77c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w48qg"]
+atlas = ExtResource("8_kek77")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
+atlas = ExtResource("8_kek77")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cqfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w48qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vivmo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
+texture = ExtResource("1_h2yge")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_7mycd"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lquwl")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1bvp3")
+
+[node name="Dog" parent="." instance=ExtResource("2_7mycd")]
+z_index = 1
+
+[node name="Ball" parent="." instance=ExtResource("3_272bh")]
+z_index = 1
+position = Vector2(273, 164)
+rotation = -0.0019759985
+
+[node name="Whistle1" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(56.000004, 664)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_ycdy4")
+
+[node name="Whistle2" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(1096, 664.00006)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_2cqfq")
+
+[node name="Level2" type="Node" parent="."]
+
+[node name="Level3" type="Node" parent="."]
+
+[node name="Level1" type="Node" parent="."]
+
+[node name="Level" type="TileMapLayer" parent="Level1"]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAAGAAAAAAACAAAAAAAHAAAAAAACAAAAAAAIAAAAAAACAAAAAAAAAAsAAAADAAAAAAAMAAAAAAACAAAAAAALAAAAAAACAAAAAAAKAAAAAAACAAAAAAAJAAAAAAACAAAAAAAAAA4AAAACAAEAAAABAA4AAAACAAEAAAACAA4AAAACAAEAAAADAA4AAAACAAEAAAAEAA4AAAACAAEAAAAFAA4AAAACAAEAAAAGAA4AAAACAAEAAAAHAA4AAAACAAEAAAAIAA4AAAACAAEAAAAJAA4AAAACAAEAAAAKAA4AAAACAAEAAAALAA4AAAACAAEAAAAMAA4AAAACAAEAAAANAA4AAAACAAEAAAAAAAwAAAADAAAAAAAAAA0AAAABAAEAAAAOAA4AAAACAAEAAAAPAA4AAAACAAEAAAAQAA4AAAACAAEAAAARAA4AAAACAAEAAAASAA4AAAACAAEAAAATAA4AAAACAAEAAAAUAA4AAAACAAEAAAAVAA4AAAACAAEAAAANAAAAAAACAAAAAAAOAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAARAAAAAAACAAAAAAASAAAAAAACAAAAAAATAAAAAAACAAAAAAAUAAAAAAACAAAAAAAVAAAAAAACAAAAAAAWAA4AAAACAAEAAAAXAAAAAAABAAEAAAAXAAEAAAABAAAAAAAXAAIAAAABAAAAAAAXAAsAAAABAAAAAAAXAAwAAAABAAAAAAAXAA0AAAABAAEAAAAXAAMAAAABAAAAAAAXAA4AAAACAAEAAAAAAAEAAAADAAAAAAAAAAIAAAADAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAAAAAUAAAADAAAAAAAAAAYAAAADAAAAAAAAAAcAAAADAAAAAAAAAAgAAAADAAAAAAAAAAkAAAADAAAAAAAAAAoAAAADAAAAAAAXAAQAAAABAAAAAAAXAAUAAAABAAAAAAAXAAYAAAABAAAAAAAXAAcAAAABAAAAAAAXAAgAAAABAAAAAAAXAAkAAAABAAAAAAAXAAoAAAABAAAAAAAWAAAAAAACAAAAAAABAA0AAAAAAAAAAAACAA0AAAAAAAAAAAADAA0AAAAAAAAAAAAEAA0AAAAAAAAAAAAFAA0AAAAAAAAAAAAGAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAJAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAALAA0AAAAAAAAAAAAMAA0AAAAAAAAAAAANAA0AAAAAAAAAAAAOAA0AAAAAAAAAAAAPAA0AAAAAAAAAAAAQAA0AAAAAAAAAAAARAA0AAAAAAAAAAAASAA0AAAAAAAAAAAATAA0AAAAAAAAAAAAUAA0AAAAAAAAAAAAVAA0AAAAAAAAAAAAWAA0AAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_7mycd")

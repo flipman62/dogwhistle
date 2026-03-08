@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dn1aj1hmay3s7"]
+
+[ext_resource type="Script" uid="uid://dmqrgyxmhfr4m" path="res://ball.gd" id="1_41u45"]
+[ext_resource type="Texture2D" uid="uid://6011y1yualmd" path="res://assets/ballsheet.png" id="2_ktgx5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7mycd"]
+friction = 0.8
+rough = true
+bounce = 0.3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("2_ktgx5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("2_ktgx5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = ExtResource("2_ktgx5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
+atlas = ExtResource("2_ktgx5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efxa6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4c57u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lquwl"]
+radius = 6.0
+
+[node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_7mycd")
+script = ExtResource("1_41u45")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_efxa6")
+frame = 3
+frame_progress = 0.18886554
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 5.999919)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_lquwl")
