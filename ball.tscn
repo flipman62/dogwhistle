@@ -48,6 +48,7 @@ animations = [{
 radius = 6.0
 
 [node name="Ball" type="RigidBody2D"]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_7mycd")
 script = ExtResource("1_41u45")
 

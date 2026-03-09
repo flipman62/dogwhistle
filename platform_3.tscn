@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck88r6hxorial"]
+
+[ext_resource type="Texture2D" uid="uid://c7fbxjm6bmj2k" path="res://assets/platform_m.png" id="1_8j3wx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py88r"]
+size = Vector2(57.75, 12)
+
+[sub_resource type="Animation" id="Animation_qyb5k"]
+resource_name = "1"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8),
+"transitions": PackedFloat32Array(0.6, 0.6, 0.6),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -200), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_py88r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_py88r"]
+_data = {
+&"1": SubResource("Animation_qyb5k"),
+&"RESET": SubResource("Animation_py88r")
+}
+
+[node name="Platform1" type="AnimatableBody2D"]
+scale = Vector2(5, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(192, 100.6)
+shape = SubResource("RectangleShape2D_py88r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(192, 100.6)
+texture = ExtResource("1_8j3wx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_py88r")
+}
+autoplay = "1"

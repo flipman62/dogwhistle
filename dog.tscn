@@ -18,13 +18,14 @@ animations = [{
 size = Vector2(90, 60)
 
 [node name="Dog" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_kb3ao")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(194, 142)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_dg77c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(191, 160)
+position = Vector2(-3, 18)
 shape = SubResource("RectangleShape2D_1bvp3")

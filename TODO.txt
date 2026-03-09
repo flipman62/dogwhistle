@@ -1,11 +1,6 @@
-- add movement arrow to ball
 - maybe only move ball if on floor
-- improve ball controls if possible
-- improve dog follow ball logic (currently only copies ball movement direction)
-- dog sits while frozen
-- music (?)
+- add movement arrow to ball
 - sound effects: whistle, bark, ball bounce
-- moving platforms
-- end goal
 - main menu
-- victory screen
+- dog sits while frozen
+
